@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +19,7 @@ body {
   background: #000;
   border-color: #3b3b3b;
   user-select: none;
+  font-family: 'Inter', sans-serif;
 }
 
 canvas {
@@ -31,7 +34,7 @@ canvas {
   max-width: 1120px;
 }
 
-/* Custom utilities: shared section/button/carousel styles; section-heading, hero-title, etc. */
+/* Custom utilities */
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center
@@ -42,7 +45,7 @@ canvas {
   }
 
   .btn {
-    @apply px-5 py-2 rounded-3xl bg-blue my-5 hover:bg-transparent border border-transparent hover:border hover:text-blue hover:border-blue
+    @apply px-5 py-2 rounded-3xl bg-nodoc-red text-white my-5 hover:bg-transparent border border-transparent hover:border hover:text-nodoc-red hover:border-nodoc-red transition-all duration-300
   }
 
   .color-container {
@@ -62,11 +65,11 @@ canvas {
   }
 
   .section-heading {
-    @apply text-gray lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20
+    @apply text-white lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20
   }
 
   .feature-text {
-    @apply text-gray max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px]
+    @apply text-gray-100 max-w-md text-lg md:text-xl font-medium opacity-0 translate-y-[100px]
   }
 
   .feature-text-container {
@@ -82,15 +85,15 @@ canvas {
   }
 
   .link {
-    @apply text-blue hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20
+    @apply text-nodoc-red hover:text-nodoc-accent hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20 transition-colors duration-300
   }
 
   .control-btn {
-    @apply ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex-center
+    @apply ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex-center transition-all hover:bg-gray-200
   }
 
   .hero-title {
-    @apply text-center font-semibold text-3xl text-gray-100 opacity-0 max-md:mb-10
+    @apply text-center font-bold text-4xl md:text-6xl text-nodoc-light opacity-0 max-md:mb-10
   }
 
   .hiw-title {
@@ -98,7 +101,7 @@ canvas {
   }
 
   .hiw-subtitle {
-    @apply text-gray font-semibold text-xl md:text-2xl py-10 text-center
+    @apply text-gray-100 font-medium text-xl md:text-2xl py-10 text-center
   }
 
   .hiw-video {
@@ -110,11 +113,11 @@ canvas {
   }
 
   .hiw-text {
-    @apply text-gray text-xl font-normal md:font-semibold
+    @apply text-gray-100 text-lg font-normal md:font-medium
   }
 
   .hiw-bigtext {
-    @apply text-white text-3xl md:text-5xl font-normal md:font-semibold my-2
+    @apply text-white text-3xl md:text-5xl font-semibold my-2
   }
 
   .video-carousel_container {

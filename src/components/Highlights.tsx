@@ -1,9 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { rightImg, watchImg } from "../utils";
-import VideoCarousel from "./VideoCarousel";
+import { rightImg } from "../utils";
+import PdfWorkflowCarousel from "./PdfWorkflowCarousel";
 
-/** Section "Get the highlights": heading + two link lines + VideoCarousel. stagger animates links one after the other. */
+/** Section "Everyday PDF Workflow": heading + link + PdfWorkflowCarousel. */
 function Highlights(): React.ReactElement {
   useGSAP(() => {
     gsap.to("#title", { opacity: 1, y: 0 });
@@ -18,22 +18,18 @@ function Highlights(): React.ReactElement {
       <div className="screen-max-width">
         <div className="mb-12 w-full md:flex items-end justify-between">
           <h1 id="title" className="section-heading">
-            Get the highlights.
+            Everything you need for everyday PDFs.
           </h1>
 
           <div className="flex flex-wrap items-end gap-5">
             <p className="link">
-              Watch the film
-              <img src={watchImg} alt="watch" className="ml-2" />
-            </p>
-            <p className="link">
-              Watch the event
-              <img src={rightImg} alt="right" className="ml-2" />
+              Explore the editor
+              <img src={rightImg} alt="right" className="ml-2 w-4 h-4" />
             </p>
           </div>
         </div>
 
-        <VideoCarousel />
+        <PdfWorkflowCarousel />
       </div>
     </section>
   );

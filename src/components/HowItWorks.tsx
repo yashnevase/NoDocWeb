@@ -1,106 +1,113 @@
-import { useRef } from "react";
-import { chipImg, frameImg, frameVideo } from "../utils";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { animateWithGsap } from "../utils/animations";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-/** A17 Pro chip section: chip image (gsap.from scale/opacity), title, frame + game video, then text blocks with g_fadeIn. */
-function HowItWorks(): React.ReactElement {
-  const videoRef = useRef<HTMLVideoElement>(null);
+gsap.registerPlugin(ScrollTrigger);
 
+export default function HowItWorks(): React.ReactElement {
   useGSAP(() => {
-    gsap.from("#chip", {
-      scrollTrigger: {
-        trigger: "#chip",
-        start: "20% bottom",
-      },
-      opacity: 0,
-      scale: 2,
-      duration: 2,
-      ease: "power2.inOut",
-    });
-
     animateWithGsap(".g_fadeIn", {
       opacity: 1,
       y: 0,
       duration: 1,
       ease: "power2.inOut",
+      stagger: 0.2
     });
+
+    gsap.fromTo(".step-card", 
+      { opacity: 0, x: -50 },
+      { 
+        opacity: 1, 
+        x: 0, 
+        duration: 1, 
+        stagger: 0.3, 
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: "#steps-container",
+          start: "top 80%"
+        }
+      }
+    );
   }, []);
 
   return (
-    <section className="common-padding">
+    <section id="hiw" className="common-padding bg-black relative">
       <div className="screen-max-width">
-        <div id="chip" className="flex-center w-full my-20">
-          <img src={chipImg} alt="chip" width={180} height={180} />
-        </div>
-
-        <div className="flex flex-col items-center">
-          <h2 className="hiw-title">
-            A17 Pro chip.
-            <br /> A monster win for gaming.
+        {/* Three Steps Section */}
+        <div className="flex flex-col items-center mb-24">
+          <h2 className="hiw-title text-white">
+            Three steps. That&apos;s it.
           </h2>
-
-          <p className="hiw-subtitle">
-            It&apos;s here. The biggest redesign in the history of Apple GPUs.
+          <p className="hiw-subtitle text-gray-200">
+            No accounts to create, no servers to connect to. Just get to work.
           </p>
+
+          <div id="steps-container" className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 w-full px-4 md:px-0">
+            {[
+              { num: "01", title: "Open", desc: "Open a PDF directly from your local filesystem." },
+              { num: "02", title: "Work", desc: "Edit text, add annotations, and organize pages natively." },
+              { num: "03", title: "Save", desc: "Save the finished document securely back to your computer." }
+            ].map((step, idx) => (
+              <div key={idx} className="step-card bg-nodoc-surface p-8 rounded-2xl border border-white/5 relative overflow-hidden group hover:border-nodoc-red/50 transition-colors">
+                <div className="text-7xl font-bold text-white/5 absolute -top-4 -right-4 transition-transform group-hover:scale-110">
+                  {step.num}
+                </div>
+                <h3 className="text-3xl font-bold text-nodoc-accent mb-4">{step.title}</h3>
+                <p className="text-gray-300 text-lg relative z-10">{step.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-10 md:mt-20 mb-14">
-          <div className="relative h-full flex-center">
-            <div className="overflow-hidden">
-              <img
-                src={frameImg}
-                alt="frame"
-                className="bg-transparent relative z-10"
-              />
+        {/* Privacy Section */}
+        <div className="mt-32 pt-20 border-t border-white/10 flex flex-col items-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-6">
+            Your documents don&apos;t need a detour.
+          </h2>
+          
+          <div className="w-full max-w-4xl flex flex-col items-center gap-10 mt-10">
+            {/* Visual Graph */}
+            <div className="flex items-center justify-center gap-4 md:gap-12 w-full px-4">
+              <div className="flex flex-col items-center g_fadeIn opacity-0 translate-y-10">
+                <div className="w-20 h-20 bg-gray-800 rounded-xl flex items-center justify-center border border-gray-600 shadow-lg">
+                  <span className="text-3xl">💻</span>
+                </div>
+                <p className="mt-4 text-gray-300 font-medium">Computer</p>
+              </div>
+
+              <div className="w-8 md:w-24 h-1 bg-gradient-to-r from-gray-600 to-nodoc-red rounded-full g_fadeIn opacity-0 translate-y-10 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-nodoc-red rotate-45 transform translate-x-1/2"></div>
+              </div>
+
+              <div className="flex flex-col items-center g_fadeIn opacity-0 translate-y-10">
+                <div className="w-24 h-24 bg-nodoc-red rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(215,25,47,0.4)]">
+                  <span className="text-white font-bold text-2xl tracking-tighter">NoDoc</span>
+                </div>
+                <p className="mt-4 text-nodoc-accent font-bold">Local App</p>
+              </div>
+
+              <div className="w-8 md:w-24 h-1 bg-gradient-to-r from-nodoc-red to-white rounded-full g_fadeIn opacity-0 translate-y-10 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45 transform translate-x-1/2"></div>
+              </div>
+
+              <div className="flex flex-col items-center g_fadeIn opacity-0 translate-y-10">
+                <div className="w-20 h-24 bg-white rounded flex items-center justify-center relative shadow-lg">
+                   <div className="absolute top-0 right-0 w-0 h-0 border-t-[16px] border-r-[16px] border-t-gray-200 border-r-transparent"></div>
+                  <span className="text-nodoc-darkred font-bold text-xl">PDF</span>
+                </div>
+                <p className="mt-4 text-gray-300 font-medium">Document</p>
+              </div>
             </div>
-            <div className="hiw-video">
-              <video
-                className="pointer-events-none"
-                playsInline
-                preload="none"
-                muted
-                autoPlay
-                ref={videoRef}
-              >
-                <source src={frameVideo} type="video/mp4" />
-              </video>
+
+            <div className="mt-12 text-center max-w-2xl">
+              <p className="text-xl md:text-2xl text-gray-200 font-medium g_fadeIn opacity-0 translate-y-10 leading-relaxed">
+                NoDoc is designed around local desktop workflows, so you can work with your PDFs directly on your computer. No cloud processing, no subscription checks.
+              </p>
             </div>
-          </div>
-          <p className="text-gray font-semibold text-center mt-3">
-            Honkai: Star Rail
-          </p>
-        </div>
-
-        <div className="hiw-text-container">
-          <div className="flex flex-1 justify-center flex-col">
-            <p className="hiw-text g_fadeIn">
-              A17 Pro is an entirely new class of iPhone chip that delivers our{" "}
-              <span className="text-white">
-                best graphic performance by far
-              </span>
-              .
-            </p>
-
-            <p className="hiw-text g_fadeIn">
-              Mobile{" "}
-              <span className="text-white">
-                games will look and feel so immersive
-              </span>
-              , with incredibly detailed environments and characters.
-            </p>
-          </div>
-
-          <div className="flex-1 flex justify-center flex-col g_fadeIn">
-            <p className="hiw-text">New</p>
-            <p className="hiw-bigtext">Pro-class GPU</p>
-            <p className="hiw-text">with 6 cores</p>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-export default HowItWorks;

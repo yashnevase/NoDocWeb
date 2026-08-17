@@ -1,117 +1,45 @@
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import gsap from "gsap";
 import { animateWithGsap } from "../utils/animations";
-import { explore1Img, explore2Img, exploreVideo } from "../utils";
 
-/** "Explore the full story": heading, two big titles, explore video, two images (g_grow), two text blocks (g_text). All scroll-triggered. */
-function Features(): React.ReactElement {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
+export default function Features(): React.ReactElement {
   useGSAP(() => {
-    gsap.to("#exploreVideo", {
-      scrollTrigger: {
-        trigger: "#exploreVideo",
-        toggleActions: "play pause reverse restart",
-        start: "-10% bottom",
-      },
-      onComplete: () => {
-        videoRef.current?.play();
-      },
-    });
-
     animateWithGsap("#features_title", { y: 0, opacity: 1 });
-    animateWithGsap(".g_grow", { scale: 1, opacity: 1, ease: "power1" }, {
-      scrub: 5.5,
-    });
     animateWithGsap(".g_text", {
       y: 0,
       opacity: 1,
       ease: "power2.inOut",
       duration: 1,
+      stagger: 0.2
     });
   }, []);
+
+  const workflows = [
+    { title: "Edit", desc: "Change what matters. Add annotations, fix typos, and leave comments directly on your PDF pages." },
+    { title: "Organize", desc: "Put every page where it belongs. Drag, drop, and rearrange your document flow visually." },
+    { title: "Merge", desc: "Bring documents together. Combine multiple PDFs into a single, cohesive file in seconds." },
+    { title: "Split", desc: "Break one document into exactly what you need. Extract pages to create new, focused PDFs." },
+    { title: "Search", desc: "Find it instantly. Lightning-fast local search across all your open documents." },
+    { title: "Offline", desc: "Your PDFs stay on your computer. No cloud uploads, no forced accounts. True local-first software." },
+  ];
 
   return (
     <section className="h-full common-padding bg-zinc relative overflow-hidden">
       <div className="screen-max-width">
-        <div className="mb-12 w-full">
-          <h1 id="features_title" className="section-heading">
-            Explore the full story.
+        <div className="mb-16 w-full text-center">
+          <h1 id="features_title" className="section-heading text-4xl md:text-6xl text-white font-bold">
+            Built for everyday workflows.
           </h1>
         </div>
 
-        <div className="flex flex-col justify-center items-center overflow-hidden">
-          <div className="mt-32 mb-24 pl-24">
-            <h2 className="text-5xl lg:text-7xl font-semibold">iPhone.</h2>
-            <h2 className="text-5xl lg:text-7xl font-semibold">
-              Forged in titanium.
-            </h2>
-          </div>
-
-          <div className="flex-center flex-col sm:px-10">
-            <div className="relative h-[50vh] w-full flex items-center">
-              <video
-                playsInline
-                id="exploreVideo"
-                className="w-full h-full object-cover object-center"
-                preload="none"
-                muted
-                autoPlay
-                ref={videoRef}
-              >
-                <source src={exploreVideo} type="video/mp4" />
-              </video>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {workflows.map((wf, idx) => (
+            <div key={idx} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:bg-white/5 transition-colors duration-300">
+              <h3 className="text-2xl font-semibold text-nodoc-accent mb-4 g_text opacity-0 translate-y-10">{wf.title}</h3>
+              <p className="text-gray-300 text-lg leading-relaxed g_text opacity-0 translate-y-10">{wf.desc}</p>
             </div>
-
-            <div className="flex flex-col w-full relative">
-              <div className="feature-video-container">
-                <div className="overflow-hidden flex-1 h-[50vh]">
-                  <img
-                    src={explore1Img}
-                    alt="titanium"
-                    className="feature-video g_grow"
-                  />
-                </div>
-                <div className="overflow-hidden flex-1 h-[50vh]">
-                  <img
-                    src={explore2Img}
-                    alt="titanium 2"
-                    className="feature-video g_grow"
-                  />
-                </div>
-              </div>
-
-              <div className="feature-text-container">
-                <div className="flex-1 flex-center">
-                  <p className="feature-text g_text">
-                    iPhone 15 Pro is{" "}
-                    <span className="text-white">
-                      the first iPhone to feature an aerospace-grade titanium
-                      design
-                    </span>
-                    , using the same alloy that spacecrafts use for missions to
-                    Mars.
-                  </p>
-                </div>
-
-                <div className="flex-1 flex-center">
-                  <p className="feature-text g_text">
-                    Titanium has one of the best strength-to-weight ratios of any
-                    metal, making these our{" "}
-                    <span className="text-white">
-                      lightest Pro models ever.
-                    </span>{" "}
-                    You&apos;ll notice the difference the moment you pick one up.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-export default Features;

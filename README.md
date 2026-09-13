@@ -2,6 +2,9 @@
 
 The product website for NoDoc, an independent desktop PDF application by Yash.
 
+Live website: https://getnodoc.vercel.app/
+Vercel project: `yashs-projects-1a0458f9/nodoc`.
+
 ## Development
 
 Use Node.js 22 or later. Run `npm ci`, then `npm run dev`.

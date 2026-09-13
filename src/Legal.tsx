@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import { owner } from "./release";
 
 export default function Legal({ path }: { path: string }) {
   const type = path.slice(1);
+  useEffect(() => {
+    document.title = ({ privacy: 'Privacy', terms: 'Terms of use', licenses: 'Licenses & credits' }[type] || 'NoDoc') + ' — NoDoc';
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', 'https://getnodoc.vercel.app' + path);
+  }, [path, type]);
   return (
     <main id="main" className="shell legal-page">
       <a href="/">← Back to NoDoc</a>

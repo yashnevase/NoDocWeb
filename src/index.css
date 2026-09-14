@@ -1645,7 +1645,7 @@ html {
   }
 }
 .hero {
-  overflow: hidden;
+  overflow: clip;
 }
 .hero > * {
   min-width: 0;

@@ -107,29 +107,13 @@ export default function PrivacyStory() {
         <details className="privacy-context">
           <summary>A fair word about privacy and online tools</summary>
           <p>
-            Uploading is not the same as making a file public. Reputable
-            services describe encryption and deletion policies; some browser
-            tools even process locally. The difference here is that NoDoc’s
-            desktop processing does not require an upload at all. Your device’s
-            security, backups, and any cloud-synced folders still matter. See{" "}
-            <a href="/privacy">our privacy approach</a>, or the published
-            policies of{" "}
-            <a
-              href="https://www.ilovepdf.com/help/legal"
-              target="_blank"
-              rel="noreferrer"
-            >
-              iLovePDF
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://smallpdf.com/trust-center"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Smallpdf
-            </a>
-            .
+            Uploading is not the same as making a file public. Some online
+            services use encryption, retention limits, or local browser
+            processing. NoDoc does not evaluate or make claims about those
+            services. Its honest advantage is simpler: normal NoDoc desktop
+            processing does not require a file upload. Your device’s security,
+            backups, and any cloud-synced folders still matter. Read{" "}
+            <a href="/privacy">our privacy approach</a>.
           </p>
         </details>
       </div>

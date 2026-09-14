@@ -1,6 +1,250 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.brand-wordmark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  font-size: 34px;
+}
+.hero h1 {
+  font-size: clamp(58px, 6.2vw, 88px);
+  letter-spacing: -0.065em;
+}
+.privacy-story {
+  background: #1b1d27;
+  color: #f4f4fa;
+  border-block: 1px solid #353746;
+  margin-bottom: 76px;
+}
+.privacy-story p,
+.privacy-story .eyebrow {
+  color: #b9bdce;
+}
+.privacy-story h2 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  color: #e8c2c8;
+  letter-spacing: -0.045em;
+}
+.processing-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.processing-lane {
+  border: 1px solid #414451;
+  border-radius: 18px;
+  padding: 27px;
+  background: #222530;
+  min-width: 0;
+}
+.local-lane {
+  background: linear-gradient(130deg, #323343, #252633);
+  border-color: #74768c;
+}
+.lane-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.lane-index {
+  font-size: 10px;
+  color: #b9bdce;
+}
+.lane-heading strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.lane-heading div > span {
+  display: block;
+  font-size: 11px;
+  color: #b9bdce;
+  margin-top: 6px;
+}
+.local-label {
+  margin-left: auto;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  color: #edced3;
+  border: 1px solid #6d5865;
+  border-radius: 20px;
+  padding: 8px;
+}
+.path-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 162px;
+}
+.path-nodes > span {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.path-nodes svg {
+  width: 26px;
+  height: 26px;
+  color: #b9bdce;
+}
+.path-nodes b {
+  font-size: 10px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.path-nodes .path-arrow {
+  width: 16px;
+  color: #82869e;
+  flex-shrink: 0;
+}
+.local-workspace {
+  margin-top: 24px;
+  min-height: 136px;
+  border: 1px solid #727187;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 24px;
+  gap: 18px;
+  box-shadow: inset 0 0 36px #c4acd20a;
+}
+.local-workspace > svg {
+  width: 29px;
+  height: 29px;
+  color: #ead0d5;
+}
+.local-workspace > span:not(.local-caption) {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 19px;
+}
+.local-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #c1aebc;
+}
+.local-workspace .local-caption {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  color: #b9bdce;
+  letter-spacing: 0.04em;
+}
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  margin-top: 48px;
+}
+.benefit-grid article > svg {
+  width: 22px;
+  height: 22px;
+  color: #e8c2c8;
+  margin-bottom: 20px;
+}
+.benefit-grid h3 {
+  font-size: 21px;
+  margin-bottom: 12px;
+}
+.benefit-grid p {
+  font-size: 13px;
+}
+.privacy-context {
+  margin-top: 38px;
+  border-top: 1px solid #414451;
+  padding-top: 22px;
+  font-size: 12px;
+  color: #b9bdce;
+}
+.privacy-context summary {
+  cursor: pointer;
+  width: fit-content;
+}
+.privacy-context p {
+  margin-top: 16px;
+  max-width: 900px;
+}
+.privacy-context a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      height: 2px;
+      width: 100%;
+      background: var(--accent);
+      transform-origin: left;
+      animation: reading-progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+@keyframes reading-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 1050px) {
+  .processing-paths {
+    grid-template-columns: 1fr;
+  }
+  .path-nodes {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 760px) {
+  .privacy-story {
+    margin-bottom: 42px;
+  }
+  .processing-lane {
+    padding: 20px;
+  }
+  .benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .benefit-grid article {
+    border-bottom: 1px solid #414451;
+    padding-bottom: 24px;
+  }
+  .benefit-grid article > svg {
+    margin-bottom: 12px;
+  }
+  .path-nodes {
+    gap: 6px;
+  }
+  .path-nodes b {
+    font-size: 9px;
+  }
+  .local-label {
+    display: none;
+  }
+  .local-workspace {
+    padding: 16px;
+    gap: 10px;
+  }
+  .local-workspace > span:not(.local-caption) {
+    gap: 12px;
+    font-size: 17px;
+  }
+}
 .hero-experience {
   position: relative;
   height: 530px;
@@ -1315,7 +1559,7 @@ html {
     gap: 7px;
   }
   .hero h1 {
-    font-size: 72px;
+    font-size: clamp(42px, 11.5vw, 72px);
   }
   .hero-description {
     font-size: 15px;
@@ -1619,7 +1863,7 @@ html {
 }
 @media (max-width: 370px) {
   .hero h1 {
-    font-size: 60px;
+    font-size: 42px;
   }
   .release-pill {
     font-size: 8px;

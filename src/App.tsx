@@ -21,6 +21,8 @@ import {
 import { release, owner } from "./release";
 import Legal from "./Legal";
 import HeroExperience from "./components/HeroExperience";
+import PrivacyStory from "./components/PrivacyStory";
+import useScrollReveal from "./useScrollReveal";
 
 const workflows = [
   {
@@ -82,7 +84,7 @@ function Brand() {
   return (
     <a className="brand" href="/" aria-label="NoDoc home">
       <img src="/favicon.png" width="34" height="34" alt="" />
-      <span>
+      <span className="brand-wordmark">
         NoDoc<span className="brand-dot">.</span>
       </span>
     </a>
@@ -90,6 +92,7 @@ function Brand() {
 }
 
 function App() {
+  useScrollReveal();
   const [theme, setTheme] = useState(() => {
     try {
       return localStorage.getItem("nodoc-site-theme") || "light";
@@ -209,18 +212,19 @@ function App() {
           <section className="hero shell">
             <div className="hero-copy">
               <a className="release-pill" href="#release-notes">
-                <span className="status-dot" /> Your desktop. Now with NoDoc.
+                <span className="status-dot" /> Offline PDF tools. No account.
+                Free.
                 <ArrowUpRight size={14} />
               </a>
               <h1>
                 Your PDFs.
                 <br />
-                Your space<span className="brand-dot">.</span>
+                Not the cloud<span className="brand-dot">.</span>
               </h1>
               <p className="hero-description">
-                Read. Edit. Organize. All in one place.
-                <br className="desktop-break" /> Free on your desktop. Your
-                files stay with you.
+                Read, edit, and organize on your own computer.
+                <br className="desktop-break" /> No uploads. No signup. No
+                subscription.
               </p>
               <div className="hero-actions">
                 <a className="button" href="#download">
@@ -237,6 +241,7 @@ function App() {
             </div>
             <HeroExperience />
           </section>
+          <PrivacyStory />
           <section
             className="product-preview shell"
             aria-label="NoDoc reader preview"
@@ -465,55 +470,6 @@ function App() {
                 Actual NoDoc interface captured with a sample document. Desktop
                 window decoration may vary by platform.
               </p>
-            </div>
-          </section>
-          <section id="why-nodoc" className="section shell why-section">
-            <div>
-              <p className="eyebrow">WHY NODOC EXISTS</p>
-              <h2>
-                Your document.
-                <br />
-                Your business.
-              </h2>
-              <p className="section-intro">
-                Some things don’t need to go to the cloud. A contract. A
-                journal. A stack of work you just want to put in order.
-              </p>
-              <a className="text-link" href="/privacy">
-                Read our privacy approach <ArrowUpRight size={17} />
-              </a>
-            </div>
-            <div className="principles">
-              <article>
-                <span>01</span>
-                <div>
-                  <h3>Keep the work close.</h3>
-                  <p>
-                    NoDoc’s PDF tools run locally on your machine. There’s no
-                    document-upload service behind the editor.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <span>02</span>
-                <div>
-                  <h3>Start without signing up.</h3>
-                  <p>
-                    Install it, open a file, and get to work. No account is
-                    required to use the desktop app.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <span>03</span>
-                <div>
-                  <h3>Built independently. Improving openly.</h3>
-                  <p>
-                    Made by Yash, with useful tools and honest release notes.
-                    Your feedback helps shape what comes next.
-                  </p>
-                </div>
-              </article>
             </div>
           </section>
           <section id="download" className="download-section">

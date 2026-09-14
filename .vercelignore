@@ -2,6 +2,6 @@ node_modules
 .git
 .env*
 *.tsbuildinfo
-GenratedNoDocAssestsKit.png
-nodoc-logo.png
+/GenratedNoDocAssestsKit.png
+/nodoc-logo.png
 dist

@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { release, owner } from "./release";
 import Legal from "./Legal";
+import HeroExperience from "./components/HeroExperience";
 
 const workflows = [
   {
@@ -208,8 +209,8 @@ function App() {
           <section className="hero shell">
             <div className="hero-copy">
               <a className="release-pill" href="#release-notes">
-                <span className="status-dot" /> A little less friction. A little
-                more focus. <ArrowUpRight size={14} />
+                <span className="status-dot" /> Your desktop. Now with NoDoc.
+                <ArrowUpRight size={14} />
               </a>
               <h1>
                 Your PDFs.
@@ -217,7 +218,7 @@ function App() {
                 Your space<span className="brand-dot">.</span>
               </h1>
               <p className="hero-description">
-                A calmer way to read, edit, and organize PDFs.
+                Read. Edit. Organize. All in one place.
                 <br className="desktop-break" /> Free on your desktop. Your
                 files stay with you.
               </p>
@@ -234,24 +235,7 @@ function App() {
                 <i /> <span>v{release.version} · Early access</span>
               </div>
             </div>
-            <div className="hero-object" aria-hidden="true">
-              <div className="orbit orbit-one" />
-              <div className="orbit orbit-two" />
-              <div className="paper-sculpture">
-                <div className="paper-leaf leaf-back" />
-                <div className="paper-leaf leaf-mid" />
-                <div className="paper-cover">
-                  <span className="paper-fold" />
-                  <span className="paper-n">N</span>
-                  <span className="paper-caption">
-                    A SPACE FOR
-                    <br />
-                    YOUR DOCUMENTS.
-                  </span>
-                </div>
-              </div>
-              <span className="object-caption">DESIGNED TO STAY LOCAL ↗</span>
-            </div>
+            <HeroExperience />
           </section>
           <section
             className="product-preview shell"
@@ -324,12 +308,20 @@ function App() {
                   key={item.short}
                   onClick={() => setWorkflow(i)}
                   onKeyDown={(event) => {
-                    const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+                    const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
                     if (!keys.includes(event.key)) return;
                     event.preventDefault();
-                    const next = event.key === 'Home' ? 0 : event.key === 'End' ? workflows.length - 1 : (i + (event.key === 'ArrowRight' ? 1 : -1) + workflows.length) % workflows.length;
+                    const next =
+                      event.key === "Home"
+                        ? 0
+                        : event.key === "End"
+                          ? workflows.length - 1
+                          : (i +
+                              (event.key === "ArrowRight" ? 1 : -1) +
+                              workflows.length) %
+                            workflows.length;
                     setWorkflow(next);
-                    document.getElementById('tab-' + next)?.focus();
+                    document.getElementById("tab-" + next)?.focus();
                   }}
                 >
                   <item.icon size={19} />

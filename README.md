@@ -10,7 +10,7 @@ Vercel project: `yashs-projects-1a0458f9/nodoc`.
 Use Node.js 22 or later. Run `npm ci`, then `npm run dev`.
 Run `npm run build` and `npm run lint` before deployment.
 
-The site uses React, TypeScript, and Vite. Current production visuals use real app screenshots and a CSS document illustration. Legacy Three.js components are retained in the source but are not imported by the production page. No analytics or session replay code is loaded.
+The site uses React, TypeScript, Vite, and a lazy-loaded Three.js / React Three Fiber hero. The interactive document stack demonstrates organize, merge, and split; screenshots elsewhere are from the real app. Animation pauses offscreen and in background tabs, respects reduced motion, and has a static fallback. Legacy Three.js components are retained but not imported. No analytics or session replay code is loaded.
 
 ## Release a new application version
 

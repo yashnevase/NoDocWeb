@@ -10,7 +10,18 @@ Vercel project: `yashs-projects-1a0458f9/nodoc`.
 Use Node.js 22 or later. Run `npm ci`, then `npm run dev`.
 Run `npm run build` and `npm run lint` before deployment.
 
-The site uses React, TypeScript, Vite, and a lazy-loaded Three.js / React Three Fiber hero. The interactive document stack demonstrates organize, merge, and split; screenshots elsewhere are from the real app. Animation pauses offscreen and in background tabs, respects reduced motion, and has a static fallback. Legacy Three.js components are retained but not imported. No analytics or session replay code is loaded.
+The site uses React, TypeScript, Vite, and a lazy-loaded Three.js / React Three Fiber hero. The interactive document stack demonstrates organize, merge, and split; screenshots elsewhere are from the real app. Animation pauses offscreen and in background tabs, respects reduced motion, and has a static fallback. No analytics or session replay code is loaded.
+
+### Source map
+
+- `src/App.tsx` — page composition, content, downloads, and interaction state.
+- `src/components/HeroExperience.tsx` and `ProductScene.tsx` — the isolated 3D hero.
+- `src/components/PrivacyStory.tsx` — local-first explanation.
+- `src/Legal.tsx`, `src/release.ts` — legal routes and release facts.
+- `src/index.css`, `src/useScrollReveal.ts` — styling and optional motion.
+- `public/screens/` — real NoDoc screenshots; `public/legal/` — notices served by the site.
+
+The source tree intentionally excludes the old showcase template, Sentry configuration, GSAP animation layer, Netlify configuration, Vite/React placeholder assets, and duplicate unused 3D components. `src/components/NoDocDocument.tsx` is excluded from compilation only because it has pre-existing uncommitted local edits; it is not used by the website and should be reviewed or removed in a separate, recoverable change.
 
 ## Release a new application version
 

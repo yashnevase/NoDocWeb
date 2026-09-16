@@ -236,7 +236,7 @@ function App() {
               </div>
               <div className="hero-meta">
                 <span>Windows & macOS</span>
-                <i /> <span>v{release.version} · Early access</span>
+                <i /> <span>Windows v{release.version} · macOS v0.1.0</span>
               </div>
             </div>
             <HeroExperience />
@@ -485,7 +485,7 @@ function App() {
                 </div>
                 <div>
                   <span className="version-badge">
-                    v{release.version} · EARLY ACCESS
+                    Windows v{release.version} · EARLY ACCESS
                   </span>
                   <p>
                     One download. No account.
@@ -521,7 +521,7 @@ function App() {
                       <Download size={17} />
                     </a>
                     <div className="download-meta">
-                      <span>v{release.version}</span>
+                      <span>v{file.version}</span>
                       <span>{file.size || "Size pending"}</span>
                     </div>
                     <p className="install-note">{file.install}</p>
@@ -537,10 +537,11 @@ function App() {
                 ))}
               </div>
               <p className="release-disclosure">
-                <span className="status-dot" /> Early access: Windows reader
-                rendering issues have been reported. macOS manual testing is
-                pending. These builds are unsigned. Keep original files and
-                review exports. <a href="#release-notes">Release details ↗</a>
+                <span className="status-dot" /> Early access: Windows v0.1.1
+                passed packaged-app checks; test it with copies of your PDFs.
+                macOS v0.1.0 manual testing is pending. These builds are
+                unsigned. Keep original files and review exports. {" "}
+                <a href="#release-notes">Release details ↗</a>
               </p>
             </div>
           </section>
@@ -562,25 +563,27 @@ function App() {
             </div>
             <article className="release-entry">
               <div>
-                <span className="version-badge">v{release.version}</span>
-                <time dateTime="2026-09-13">13 September 2026</time>
+                <span className="version-badge">Windows v{release.version}</span>
+                <time dateTime="2026-09-16">16 September 2026</time>
               </div>
-              <h3>The first early-access build.</h3>
+              <h3>A Windows reliability update.</h3>
               <p>
-                Read and search PDFs, organize pages, add watermarks and
-                annotations, use local OCR, and export your work.
+                Windows v0.1.1 corrects the local backend connection used by
+                packaged NoDoc and removes the separate console window. The
+                macOS download remains v0.1.0.
               </p>
               <ul>
                 <li>
-                  Windows installer build and startup health check passed in CI.
+                  Windows installer, sidecar health, production CORS, and
+                  windowed-sidecar checks passed in CI.
                 </li>
                 <li>
-                  Apple silicon DMG available; manual app testing remains
-                  pending.
+                  Test Windows v0.1.1 with copies of your PDFs before relying
+                  on it; real-machine workflow testing continues.
                 </li>
                 <li>
-                  Known issue: blank or glitched PDF rendering reported on
-                  Windows.
+                  Apple silicon v0.1.0 remains available; manual app testing
+                  is pending.
                 </li>
               </ul>
               <a href={release.notesUrl || "#download"} className="text-link">

@@ -85,10 +85,11 @@ export default function Legal({ path }: { path: string }) {
           </p>
           <h2>Early-access software</h2>
           <p>
-            NoDoc 0.1.0 is provided for evaluation and everyday testing. It may
-            contain bugs. Blank or glitched PDF rendering has been reported on
-            Windows; macOS manual validation remains pending. Keep backups of
-            original documents and review outputs before using or sharing them.
+            Windows NoDoc 0.1.1 and macOS NoDoc 0.1.0 are provided for
+            evaluation and everyday testing. They may contain bugs. Windows
+            v0.1.1 passed automated packaged-app checks; macOS manual
+            validation remains pending. Keep backups of original documents and
+            review outputs before using or sharing them.
           </p>
           <h2>What is included</h2>
           <p>

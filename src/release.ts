@@ -20,15 +20,15 @@ export const release = {
     },
     {
       platform: "macOS",
-      version: "0.1.0",
+      version: "0.1.3",
       architecture: "Apple silicon · M1 and later",
       format: ".dmg",
-      size: "53.5 MB",
-      url: "https://github.com/yashnevase/NoDoc-Releases/releases/download/v0.1.0-early-access/NoDoc_0.1.0_aarch64.dmg",
+      size: "51 MB",
+      url: "https://github.com/yashnevase/NoDoc-Releases/releases/download/v0.1.3-early-access/NoDoc_0.1.3_aarch64.dmg",
       sha256:
-        "19fc75ea3ce038e08e2d490e43db6c20cf75d8407f956a4f78c6f166c9e7dcf4",
+        "54643d5f8ab003003ef038005aa1ebe5ca421a923dff2a99c5ff757d2bea432a",
       install:
-        "Open the disk image and drag NoDoc to Applications. Not notarized. Intel Macs are not supported by this build.",
+        "Open the disk image and drag NoDoc to Applications. The app bundle is verified, but it is not notarized. Intel Macs are not supported by this build.",
     },
   ],
 };

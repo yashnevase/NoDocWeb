@@ -236,7 +236,7 @@ function App() {
               </div>
               <div className="hero-meta">
                 <span>Windows & macOS</span>
-                <i /> <span>Windows v{release.version} · macOS v0.1.0</span>
+                <i /> <span>Windows v{release.version} · macOS v0.1.3</span>
               </div>
             </div>
             <HeroExperience />
@@ -539,7 +539,7 @@ function App() {
               <p className="release-disclosure">
                 <span className="status-dot" /> Early access: Windows v0.1.2
                 passed packaged-app checks; test it with copies of your PDFs.
-                macOS v0.1.0 manual testing is pending. These builds are
+                macOS v0.1.3 manual testing is pending. These builds are
                 unsigned. Keep original files and review exports. {" "}
                 <a href="#release-notes">Release details ↗</a>
               </p>
@@ -569,8 +569,8 @@ function App() {
               <h3>A Windows reliability update.</h3>
               <p>
                 Windows v0.1.2 removes the separate console window and fixes
-                packaged editor/page-management previews. The
-                macOS download remains v0.1.0.
+                packaged editor/page-management previews. The macOS v0.1.3
+                download contains a bundle-signature packaging repair.
               </p>
               <ul>
                 <li>
@@ -582,7 +582,7 @@ function App() {
                   on it; real-machine workflow testing continues.
                 </li>
                 <li>
-                  Apple silicon v0.1.0 remains available; manual app testing
+                  Apple silicon v0.1.3 is available; manual app testing
                   is pending.
                 </li>
               </ul>

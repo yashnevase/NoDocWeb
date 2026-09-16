@@ -85,7 +85,7 @@ export default function Legal({ path }: { path: string }) {
           </p>
           <h2>Early-access software</h2>
           <p>
-            Windows NoDoc 0.1.1 and macOS NoDoc 0.1.0 are provided for
+            Windows NoDoc 0.1.2 and macOS NoDoc 0.1.3 are provided for
             evaluation and everyday testing. They may contain bugs. Windows
             v0.1.1 passed automated packaged-app checks; macOS manual
             validation remains pending. Keep backups of original documents and

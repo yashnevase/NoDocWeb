@@ -537,7 +537,7 @@ function App() {
                 ))}
               </div>
               <p className="release-disclosure">
-                <span className="status-dot" /> Early access: Windows v0.1.1
+                <span className="status-dot" /> Early access: Windows v0.1.2
                 passed packaged-app checks; test it with copies of your PDFs.
                 macOS v0.1.0 manual testing is pending. These builds are
                 unsigned. Keep original files and review exports. {" "}
@@ -568,8 +568,8 @@ function App() {
               </div>
               <h3>A Windows reliability update.</h3>
               <p>
-                Windows v0.1.1 corrects the local backend connection used by
-                packaged NoDoc and removes the separate console window. The
+                Windows v0.1.2 removes the separate console window and fixes
+                packaged editor/page-management previews. The
                 macOS download remains v0.1.0.
               </p>
               <ul>

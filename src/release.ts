@@ -4,19 +4,19 @@ export const owner = {
   github: "https://github.com/yashnevase",
 };
 export const release = {
-  version: "0.1.1",
-  notesUrl: "https://github.com/yashnevase/NoDoc-Releases/releases/tag/v0.1.1-early-access",
+  version: "0.1.2",
+  notesUrl: "https://github.com/yashnevase/NoDoc-Releases/releases/tag/v0.1.2-early-access",
   downloads: [
     {
       platform: "Windows",
-      version: "0.1.1",
+      version: "0.1.2",
       architecture: "Windows 10 / 11 · x64",
       format: ".exe",
       size: "110 MB",
-      url: "https://github.com/yashnevase/NoDoc-Releases/releases/download/v0.1.1-early-access/NoDoc_0.1.1_x64-setup.exe",
-      sha256: "a8cace2bf49a056ab34f3e2c96435cd38b779fed27b30911aaad20121ba59903",
+      url: "https://github.com/yashnevase/NoDoc-Releases/releases/download/v0.1.2-early-access/NoDoc_0.1.2_x64-setup.exe",
+      sha256: "e5226e3493fa7a6aac3f57e3138f60cbee52fed0818329bdb89f4f0d7817d33f",
       install:
-        "Run the installer and follow the setup steps. Early-access build; unsigned. It should open without a separate Command Prompt window.",
+        "Run the installer and follow the setup steps. Early-access build; unsigned. It opens without a separate Command Prompt window.",
     },
     {
       platform: "macOS",
